@@ -1,0 +1,46 @@
+name: Daily generate & deploy
+
+on:
+  schedule:
+    # runs once daily at 09:00 UTC — adjust cron as you like (cron in UTC)
+    - cron: '0 9 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install openai
+
+      - name: Run generator
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python generate.py
+
+      - name: Commit generated content
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add public || true
+          git commit -m "Automated daily cosmic drop: $(date -u +'%Y-%m-%d')" || echo "no changes to commit"
+          git push origin HEAD:main || echo "push failed"
+
+      - name: Deploy to GitHub Pages (gh-pages branch)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
