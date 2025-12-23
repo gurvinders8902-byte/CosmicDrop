@@ -3,92 +3,152 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CosmicDrop.net — Daily Cosmic Surprises</title>
-  <meta name="description" content="CosmicDrop delivers a daily cosmic surprise — facts, mini-stories, mysteries, and space vibes." />
+  <title>CosmicDrop.net — Daily Cosmic Surprises</title> 
+<meta name="google-site-verification" content="XagCF-dQ-6lpw3eQ46arakZUH4M7zEMQuQlhrpX7WLU" />
+  <meta name="description" content="CosmicDrop delivers a daily cosmic surprise — facts, mini-stories, mysteries, and space vibes. Drop in every day." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%230b1020'/><circle cx='60' cy='40' r='6' fill='%23ffd166'/><circle cx='35' cy='55' r='3' fill='%23ef476f'/></svg>" />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: radial-gradient(circle at top, #0b0c2a, #1c1c3c);
-      color: #ffffff;
-      text-align: center;
+    :root{
+      --bg:#0b1020; --card:#111836; --text:#e9ecf1; --muted:#9aa4bf;
+      --accent:#6cf2c2; --accent2:#7aa2ff; --danger:#ff6b6b;
     }
-    header {
-      padding: 50px 20px 30px 20px;
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+      color:var(--text); background:radial-gradient(1200px 600px at 20% -10%, #1a2255 0%, transparent 60%), var(--bg);
+      min-height:100vh;
     }
-    header h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-      color: #ffd700;
-      text-shadow: 1px 1px 5px #ff00ff;
+    header{
+      padding:28px 20px; max-width:1100px; margin:auto; display:flex; align-items:center; justify-content:space-between;
     }
-    header p {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .drop {
-      background: rgba(255,255,255,0.05);
-      margin: 30px auto;
-      padding: 30px;
-      border-radius: 20px;
-      max-width: 700px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.1);
-      font-size: 1.5em;
-      line-height: 1.5;
-    }
-    .subscribe {
-      margin: 50px 0;
-    }
-    .subscribe a {
-      display: inline-block;
-      padding: 15px 30px;
-      background: #6a5acd;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
-      box-shadow: 0 0 10px #6a5acd;
-      transition: all 0.3s ease;
-    }
-    .subscribe a:hover {
-      background: #7b68ee;
-      box-shadow: 0 0 20px #7b68ee;
-    }
-    footer {
-      padding: 20px;
-      font-size: 0.9em;
-      color: #bbb;
-    }
-    @media (max-width: 600px) {
-      header h1 { font-size: 2em; }
-      .drop { font-size: 1.2em; padding: 20px; }
-      .subscribe a { padding: 12px 25px; font-size: 1em; }
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo{width:42px; height:42px; border-radius:12px; background:linear-gradient(135deg,var(--accent2),var(--accent)); box-shadow:0 10px 30px rgba(122,162,255,.35)}
+    .brand h1{font-size:1.35rem; margin:0}
+    .brand span{color:var(--muted); font-size:.9rem}
+    nav a{color:var(--muted); text-decoration:none; margin-left:16px}
+    nav a:hover{color:var(--text)}
+
+    main{max-width:1100px; margin:auto; padding:0 20px 60px}
+    .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:24px; align-items:center}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)), var(--card);
+      border-radius:22px; padding:26px; box-shadow:0 20px 60px rgba(0,0,0,.35)}
+    .pill{display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:999px; background:#0e1536; color:var(--accent)}
+    h2{font-size:2.1rem; margin:.6rem 0}
+    p{color:var(--muted); line-height:1.6}
+    .actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
+    .btn{border:0; border-radius:14px; padding:12px 18px; cursor:pointer; font-weight:600}
+    .btn.primary{background:linear-gradient(135deg,var(--accent2),var(--accent)); color:#0b1020}
+    .btn.ghost{background:#0e1536; color:var(--text)}
+
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:28px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+
+    .drop{min-height:180px; display:flex; flex-direction:column; gap:10px}
+    .drop h3{margin:0}
+    .badge{font-size:.8rem; color:var(--accent);}
+
+    .mystery{display:flex; align-items:center; justify-content:center; min-height:220px; text-align:center}
+    .mystery .big{font-size:3rem}
+
+    .email{display:flex; gap:10px; margin-top:12px}
+    .email input{flex:1; padding:12px 14px; border-radius:12px; border:1px solid #22306b; background:#0b1020; color:var(--text)}
+
+    footer{margin-top:60px; padding-top:20px; border-top:1px solid #1b2350; color:var(--muted)}
+    footer a{color:var(--muted); text-decoration:none}
+
+    /* subtle stars */
+    .stars:before{
+      content:""; position:fixed; inset:0; background-image:radial-gradient(1px 1px at 10% 20%, #fff, transparent 40%),radial-gradient(1px 1px at 80% 30%, #fff, transparent 40%),radial-gradient(1px 1px at 30% 70%, #fff, transparent 40%),radial-gradient(1px 1px at 70% 80%, #fff, transparent 40%);
+      opacity:.15; pointer-events:none
     }
   </style>
 </head>
-<body>
+<body class="stars">
   <header>
-    <h1>CosmicDrop 🌌</h1>
-    <p>Discover one fascinating cosmic fact or mystery every day. Join thousands of space lovers exploring the universe, one drop at a time.</p>
+    <div class="brand">
+      <div class="logo"></div>
+      <div>
+        <h1>CosmicDrop</h1>
+        <span>one cosmic surprise a day</span>
+      </div>
+    </div>
+    <nav>
+      <a href="#drops">Drops</a>
+      <a href="#mystery">Mystery</a>
+      <a href="#subscribe">Subscribe</a>
+    </nav>
   </header>
 
-  <section class="drop">
-    <!-- Latest cosmic drop goes here -->
-    <p id="latest-drop">
-      🌌 Cosmic Drop #1<br>
-      A neutron star can spin 600 times per second.
-    </p>
-  </section>
+  <main>
+    <section class="hero">
+      <div class="card">
+        <span class="pill">🚀 Daily Cosmic Surprise</span>
+        <h2>Drop in. Discover something cosmic.</h2>
+        <p>Every day we publish one short, surprising cosmic drop — a fact, a micro-story, a mystery, or a space moment you can share in seconds.</p>
+        <div class="actions">
+          <button class="btn primary" onclick="revealMystery()">Reveal Today’s Drop</button>
+          <a class="btn ghost" href="#subscribe">Get daily drops by email</a>
+        </div>
+      </div>
+      <div class="card mystery" id="mystery">
+        <div>
+          <div class="big">✨</div>
+          <p id="mysteryText">Tap the button to reveal today’s cosmic drop.</p>
+        </div>
+      </div>
+    </section>
 
-  <section class="subscribe">
-    <h2>Get the Daily Cosmic Drop</h2>
-    <p>Delivered straight to your inbox — no spam, just cosmic wonders.</p>
-    <a href="https://buttondown.email/cosmicdrop" target="_blank">Subscribe Free</a>
-  </section>
+    <section id="drops" class="grid">
+      <div class="card drop">
+        <span class="badge">FACT</span>
+        <h3>Space is not silent</h3>
+        <p>Plasma waves recorded by spacecraft can be converted into sound — the universe has a rhythm.</p>
+      </div>
+      <div class="card drop">
+        <span class="badge">MICRO-STORY</span>
+        <h3>The last message</h3>
+        <p>"If you find this, we made it farther than we hoped." The stars blinked back.</p>
+      </div>
+      <div class="card drop">
+        <span class="badge">MYSTERY</span>
+        <h3>What is dark energy?</h3>
+        <p>An unknown force pushing the universe apart — we feel it, but don’t fully understand it.</p>
+      </div>
+    </section>
 
-  <footer>
-    &copy; 2025 CosmicDrop.net | Designed for space lovers everywhere
-  </footer>
+    <section id="subscribe" class="card" style="margin-top:28px">
+      <h3>Get the Daily Cosmic Drop</h3>
+      <p>One short email per day. No spam. Unsubscribe anytime.</p>
+      <form class="email" onsubmit="subscribe(event)">
+        <input type="email" required placeholder="you@email.com" />
+        <button class="btn primary" type="submit">Subscribe</button>
+      </form>
+      <small class="muted">We’ll add a real email service soon.</small>
+    </section>
+
+    <footer>
+      <p>© <span id="year"></span> CosmicDrop.net • Built with GitHub Pages</p>
+      <p><a href="#">Privacy</a> · <a href="#">Contact</a></p>
+    </footer>
+  </main>
+
+  <script>
+    const drops = [
+      'A teaspoon of a neutron star would weigh about a billion tons on Earth.',
+      'Venus rotates so slowly that a day there is longer than a year.',
+      'There may be more stars in the universe than grains of sand on all Earth’s beaches.',
+      'We are made of star stuff — elements in your body were forged in ancient stars.'
+    ];
+    function revealMystery(){
+      const pick = drops[Math.floor(Math.random()*drops.length)];
+      document.getElementById('mysteryText').innerText = pick;
+    }
+    function subscribe(e){
+      e.preventDefault();
+      alert('Thanks! Email signup will be enabled soon.');
+    }
+    document.getElementById('year').innerText = new Date().getFullYear();
+  </script>
 </body>
 </html>
